@@ -1,2 +1,13 @@
-# url-shortener
-URL shortener built with Flask | Learning backend development
+# URL Shortener
+
+URL shortening service built with Flask.
+
+## Status
+
+🚧 Work in progress
+
+## Tech Stack
+
+- Python
+- Flask
+- SQLAlchemy
