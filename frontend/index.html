@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>URL Shortener</title>
+  </head>
+  <body>
+    <header>
+      <h1>URL Shortener</h1>
+      <p>Created by: <a href="https://github.com/Its-SMAC">Itss_SMAC</a></p>
+    </header>
+    <main>
+      <div class="container">
+        <div class="navbar">
+          <a href="">Link list</a>
+        </div>
+        <div class="box">
+          <div class="form">
+            <form id="shortenForm">
+              <input
+                type="url"
+                id="urlInput"
+                placeholder="Link here..."
+                required
+              />
+              <button type="submit">Shorten</button>
+            </form>
+          </div>
+          <div class="resultado">
+            <p>URL Encurtado:</p>
+            <input type="text" id="urlCurto" readonly />
+            <button id="copiarBtn">Copiar</button>
+            <button id="novoBtn">Encurtar outro</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>&copy; All rights belong to Itss_SMAC.</p>
+    </footer>
+  </body>
+</html>
