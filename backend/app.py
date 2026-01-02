@@ -4,7 +4,7 @@ from database import db, URL
 from utils import gerar_codigo_curto
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins="*")
 
 # Configuração da BD
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///urls.db'
