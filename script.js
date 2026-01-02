@@ -15,7 +15,7 @@ form.addEventListener("submit", async (e) => {
 
   try {
     // Envia para backend
-    const response = await fetchfetch(
+    const response = await fetch(
       "https://url-shortener-kvin.onrender.com/shorten",
       {
         method: "POST",
