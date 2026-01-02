@@ -5,10 +5,6 @@ const urlInput = document.getElementById("urlInput");
 const urlCurto = document.getElementById("urlCurto");
 const copiarBtn = document.getElementById("copiarBtn");
 const novoBtn = document.getElementById("novoBtn");
-const API_URL =
-  window.location.hostname === "localhost"
-    ? "http://localhost:5000"
-    : "https://url-shortener-kvin.onrender.com";
 
 // 2. SUBMIT DO FORM
 form.addEventListener("submit", async (e) => {
@@ -19,13 +15,16 @@ form.addEventListener("submit", async (e) => {
 
   try {
     // Envia para backend
-    const response = await fetchfetch(`${API_URL}/shorten`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ url: url }),
-    });
+    const response = await fetchfetch(
+      "https://url-shortener-kvin.onrender.com/shorten",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ url: url }),
+      }
+    );
 
     // Converte resposta para JSON
     const data = await response.json();
