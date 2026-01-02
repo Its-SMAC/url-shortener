@@ -2,6 +2,9 @@ from flask import Flask, request, jsonify, redirect
 from flask_cors import CORS
 from database import db, URL 
 from utils import gerar_codigo_curto
+import os
+
+BASE_URL = os.environ.get('BASE_URL', 'http://127.0.0.1:5000')
 
 app = Flask(__name__)
 CORS(app)
@@ -28,6 +31,14 @@ def shorten():
     url_original = data.get('url')
     if not url_original:
         return jsonify({"erro":'URL é obrigatório'}), 400
+    url_existente = URL.query.filter_by(url_original=url_original).first()
+    if url_existente:
+        return jsonify({
+        'codigo':url_existente.codigo_curto,
+        'url_curto':f'{BASE_URL}/{url_existente.codigo_curto}',
+        'url_original': url_original
+    }), 200
+    
     codigo = gerar_codigo_curto()
     while URL.query.filter_by(codigo_curto=codigo).first():
         codigo = gerar_codigo_curto()
@@ -40,7 +51,7 @@ def shorten():
         return jsonify({'erro':'Erro ao processar'}), 500
     return jsonify({
         'codigo':codigo,
-        'url_curto':f'http://127.0.0.1:5000/{codigo}',
+        'url_curto':f'{BASE_URL}/{codigo}',
         'url_original': url_original
     }), 201
 
@@ -52,4 +63,4 @@ def redirecionar(codigo):
     return redirect(url_obj.url_original)
 
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0', port=5000)
+    app.run()
