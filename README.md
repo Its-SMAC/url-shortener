@@ -9,7 +9,7 @@ A simple and efficient URL shortening service built with Flask and vanilla JavaS
 
 ## 📸 Screenshots
 
-![Homepage](screenshots\form_empty.png)
+![Homepage](\screenshots\form_empty.png)
 _Clean interface for shortening URLs_
 
 ![Result](screenshots\result_shortening.png)
