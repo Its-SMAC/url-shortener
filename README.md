@@ -1,6 +1,6 @@
 # 🔗 URL Shortener
 
-A simple and efficient URL shortening service built with Flask and vanilla JavaScript.
+A simple URL shortening service built with Flask and vanilla JavaScript.
 
 ## 🚀 Live Demo
 
